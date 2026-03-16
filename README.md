@@ -2,6 +2,8 @@
 
 **Live Documentation:** [https://jgmikael.github.io/vocabularies/](https://jgmikael.github.io/vocabularies/)
 
+**Technical Specification:** [https://jgmikael.github.io/vocabularies/specification.html](https://jgmikael.github.io/vocabularies/specification.html)
+
 ## Overview
 
 This repository combines three core vocabularies from [Tietomallit.suomi.fi](https://tietomallit.suomi.fi) (Finnish Interoperability Platform) into a unified reference for business process digitalization using W3C Verifiable Credentials and the EU Business Wallet framework.

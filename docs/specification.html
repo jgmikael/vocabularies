@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Business Vocabularies Specification v1.0</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background: #fff;
+        }
+        
+        header {
+            border-bottom: 3px solid #005a9c;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #005a9c;
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        
+        h2 {
+            color: #005a9c;
+            border-bottom: 2px solid #005a9c;
+            padding-bottom: 8px;
+            margin-top: 50px;
+        }
+        
+        h3 {
+            color: #333;
+            margin-top: 30px;
+            font-size: 1.3em;
+        }
+        
+        h4 {
+            color: #005a9c;
+            margin-top: 25px;
+            font-size: 1.1em;
+            font-family: monospace;
+        }
+        
+        .abstract, .sotd {
+            background: #f0f8ff;
+            border-left: 4px solid #005a9c;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .vocab-prefix {
+            display: inline-block;
+            background: #e8f4f8;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .term-def {
+            border-left: 3px solid #ddd;
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+        
+        .term-def h4 {
+            margin-top: 0;
+        }
+        
+        .term-label {
+            font-style: italic;
+            color: #666;
+            display: block;
+            margin: 5px 0;
+        }
+        
+        .term-meta {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 0.95em;
+        }
+        
+        .term-meta dt {
+            font-weight: bold;
+            color: #555;
+            margin-top: 8px;
+        }
+        
+        .term-meta dd {
+            margin-left: 20px;
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-left: 4px solid #005a9c;
+            padding: 15px;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        
+        .namespace-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .namespace-table th,
+        .namespace-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .namespace-table th {
+            background: #005a9c;
+            color: white;
+        }
+        
+        .namespace-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .example {
+            background: #fffef0;
+            border: 1px solid #e0dfc0;
+            border-left: 4px solid #ffcc00;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        a {
+            color: #005a9c;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .toc ul ul {
+            padding-left: 20px;
+        }
+        
+        .toc a {
+            color: #333;
+        }
+        
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Combined Business Vocabularies Specification</h1>
+        <div class="subtitle">WE BUILD + EU-Core + NCBV</div>
+        <div class="subtitle">Version 1.0 – March 2026</div>
+    </header>
+
+    <section id="abstract" class="abstract">
+        <h2>Abstract</h2>
+        <p>
+            This document describes the <strong>Combined Business Vocabularies</strong> specification, 
+            which integrates three core vocabularies from the Finnish Interoperability Platform 
+            (Tietomallit.suomi.fi): WE BUILD Vocabulary, EU Core Vocabularies, and Nordic Core 
+            Business Vocabulary (NCBV). The combined vocabulary enables semantic interoperability 
+            for W3C Verifiable Credentials in business process digitalization, particularly for 
+            the EU Business Wallet framework.
+        </p>
+        <p>
+            Alternate versions of the vocabulary definitions exist in 
+            <a href="../vocab/src/webuild.ttl">Turtle</a> and 
+            <a href="../vocab/src/webuild.jsonld">JSON-LD</a> for each component vocabulary.
+        </p>
+    </section>
+
+    <section id="sotd" class="sotd">
+        <h2>Status of This Document</h2>
+        <p>
+            This vocabulary specification combines three independently maintained vocabularies. 
+            Each component vocabulary has its own publication status:
+        </p>
+        <ul>
+            <li><strong>WE BUILD Vocabulary:</strong> Draft (maintained by Finnish DVV)</li>
+            <li><strong>EU-Core:</strong> Draft (based on EU Core Vocabularies v2.0.0)</li>
+            <li><strong>NCBV:</strong> Draft v0.0.8 (maintained by Finnish Tax Administration and Nordic working group)</li>
+        </ul>
+        <p>
+            This combined specification is maintained at 
+            <a href="https://github.com/jgmikael/vocabularies">github.com/jgmikael/vocabularies</a>. 
+            Issues and feedback should be filed there.
+        </p>
+    </section>
+
+    <nav class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#namespaces">1. Namespaces</a></li>
+            <li><a href="#architecture">2. Architecture and Relationships</a></li>
+            <li><a href="#webuild">3. WE BUILD Vocabulary</a>
+                <ul>
+                    <li><a href="#webuild-classes">3.1 Classes</a></li>
+                    <li><a href="#webuild-properties">3.2 Properties</a></li>
+                </ul>
+            </li>
+            <li><a href="#eucore">4. EU-Core Vocabulary</a>
+                <ul>
+                    <li><a href="#eucore-classes">4.1 Classes</a></li>
+                    <li><a href="#eucore-properties">4.2 Properties</a></li>
+                </ul>
+            </li>
+            <li><a href="#ncbv">5. NCBV Vocabulary</a>
+                <ul>
+                    <li><a href="#ncbv-classes">5.1 Classes</a></li>
+                    <li><a href="#ncbv-properties">5.2 Properties</a></li>
+                </ul>
+            </li>
+            <li><a href="#usage">6. Usage in W3C Verifiable Credentials</a></li>
+            <li><a href="#examples">7. Complete Examples</a></li>
+        </ul>
+    </nav>
+
+    <section id="namespaces">
+        <h2>1. Namespaces</h2>
+        <p>This specification makes use of the following namespaces:</p>
+        
+        <table class="namespace-table">
+            <thead>
+                <tr>
+                    <th>Prefix</th>
+                    <th>Namespace IRI</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>webuild</code></td>
+                    <td><code>https://iri.suomi.fi/model/webuild/</code></td>
+                    <td>WE BUILD Vocabulary</td>
+                </tr>
+                <tr>
+                    <td><code>eu-core</code></td>
+                    <td><code>https://iri.suomi.fi/model/eu-core/</code></td>
+                    <td>EU Core Vocabularies</td>
+                </tr>
+                <tr>
+                    <td><code>ncbv</code></td>
+                    <td><code>https://iri.suomi.fi/model/ncbv/</code></td>
+                    <td>Nordic Core Business Vocabulary</td>
+                </tr>
+                <tr>
+                    <td><code>cred</code></td>
+                    <td><code>https://w3.org/2018/credentials#</code></td>
+                    <td>W3C Verifiable Credentials</td>
+                </tr>
+                <tr>
+                    <td><code>xsd</code></td>
+                    <td><code>http://www.w3.org/2001/XMLSchema#</code></td>
+                    <td>XML Schema datatypes</td>
+                </tr>
+                <tr>
+                    <td><code>skos</code></td>
+                    <td><code>http://www.w3.org/2004/02/skos/core#</code></td>
+                    <td>SKOS vocabulary</td>
+                </tr>
+                <tr>
+                    <td><code>owl</code></td>
+                    <td><code>http://www.w3.org/2002/07/owl#</code></td>
+                    <td>OWL Web Ontology Language</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="architecture">
+        <h2>2. Architecture and Relationships</h2>
+        
+        <p>The three vocabularies have the following import relationships:</p>
+        
+        <pre><code>┌─────────────────────────────────────┐
+│     WE BUILD Vocabulary             │
+│     (webuild:)                      │
+│                                     │
+│  • ComplianceAttestation            │
+│  • PostedWorkerNotification         │
+│  • TaxDebtStatusAttestation         │
+│  • Employment, WorkAssignment       │
+└────────────┬────────────────────────┘
+             │ owl:imports
+             ▼
+┌─────────────────────────────────────┐
+│     EU-Core Vocabulary              │
+│     (eu-core:)                      │
+│                                     │
+│  • Person, LegalEntity              │
+│  • Organization, PublicOrganization │
+│  • Address, Location                │
+│  • Evidence, Document               │
+│  • Identifier, ContactPoint         │
+└─────────────────────────────────────┘
+             ▲
+             │ owl:imports (as isa2core v1.0.0)
+             │
+┌─────────────────────────────────────┐
+│     NCBV Vocabulary                 │
+│     (ncbv:)                         │
+│                                     │
+│  • LegalEntity (extended)           │
+│  • Role, Mandate, Membership        │
+│  • RepresentationRule               │
+│  • BeneficialOwner                  │
+│  • ShareCapital                     │
+└─────────────────────────────────────┘</code></pre>
+
+        <p><strong>Key architectural principles:</strong></p>
+        <ul>
+            <li>WE BUILD extends EU-Core with attestation-specific classes for the EU Business Wallet</li>
+            <li>NCBV extends EU-Core (ISA2core) with Nordic business entity modeling</li>
+            <li>All three vocabularies can be used together in W3C Verifiable Credentials</li>
+            <li>Common classes (e.g., LegalEntity, Address) can combine properties from multiple vocabularies</li>
+        </ul>
+    </section>
+
+    <section id="webuild">
+        <h2>3. WE BUILD Vocabulary</h2>
+        
+        <dl class="term-meta">
+            <dt>Namespace</dt>
+            <dd><code>https://iri.suomi.fi/model/webuild/</code></dd>
+            
+            <dt>Prefix</dt>
+            <dd><code>webuild</code></dd>
+            
+            <dt>Description</dt>
+            <dd>Vocabulary for the electronic attestations of attributes (QEAA, PubEAA, EAA) designed for the WE BUILD Large Scale Pilot use cases.</dd>
+            
+            <dt>Imports</dt>
+            <dd><code>eu-core:</code>, <code>https://gs1.org/voc/</code></dd>
+            
+            <dt>Source</dt>
+            <dd><a href="https://tietomallit.suomi.fi/model/webuild">Tietomallit.suomi.fi</a></dd>
+        </dl>
+
+        <h3 id="webuild-classes">3.1 Key Classes</h3>
+
+        <div class="term-def">
+            <h4>webuild:ComplianceAttestation</h4>
+            <span class="term-label">Compliance Attestation</span>
+            <p>Base class for compliance-related attestations in the construction and posted worker domain.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Subclasses</dt>
+                <dd>TaxDebtStatusAttestation, SocialContributionsDebtStatusAttestation, TaxFilingComplianceAttestation, StatutoryInsuranceCoverageAttestation, CompanyRegistrationGoodStandingAttestation</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>webuild:PostedWorkerNotification</h4>
+            <span class="term-label">Posted Worker Notification</span>
+            <p>Notification for posted workers under the EU Posted Workers Directive.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Key Properties</dt>
+                <dd>hasWorker, hasWorkAssignment, hasSendingEmployer, hasHostEntity, hasNotificationAuthority</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>webuild:PDA1Certificate</h4>
+            <span class="term-label">Portable Document A1 Certificate</span>
+            <p>Social security determination certificate (PDA1) indicating applicable social security legislation.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Related</dt>
+                <dd>SocialSecurityDetermination, Determination</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>webuild:Employment</h4>
+            <span class="term-label">Employment</span>
+            <p>Employment relationship between worker and employer.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Key Properties</dt>
+                <dd>hasEmployer, employmentType, hasOccupation</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>webuild:WorkAssignment</h4>
+            <span class="term-label">Work Assignment</span>
+            <p>Specific work assignment including location, activity, and time period.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Key Properties</dt>
+                <dd>hasWorkLocation, hasWorkActivity, hasAssignmentPeriod, usesOperationalAsset</dd>
+            </dl>
+        </div>
+
+        <h3 id="webuild-properties">3.2 Key Properties</h3>
+
+        <div class="term-def">
+            <h4>webuild:hasTaxDebtStatus</h4>
+            <span class="term-label">has tax debt status</span>
+            <p>Indicates the tax debt status of an entity.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:ObjectProperty</dd>
+                <dt>Domain</dt>
+                <dd>eu-core:LegalEntity</dd>
+                <dt>Range</dt>
+                <dd>xsd:string</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>webuild:hasWorker</h4>
+            <span class="term-label">has worker</span>
+            <p>Associates a posted worker notification with the worker(s) involved.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:ObjectProperty</dd>
+                <dt>Domain</dt>
+                <dd>webuild:PostedWorkerNotification</dd>
+                <dt>Range</dt>
+                <dd>eu-core:Person</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>webuild:hasWorkLocation</h4>
+            <span class="term-label">has work location</span>
+            <p>Specifies the geographic location where work is performed.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:ObjectProperty</dd>
+                <dt>Domain</dt>
+                <dd>webuild:WorkAssignment</dd>
+                <dt>Range</dt>
+                <dd>eu-core:Location</dd>
+            </dl>
+        </div>
+    </section>
+
+    <section id="eucore">
+        <h2>4. EU-Core Vocabulary</h2>
+        
+        <dl class="term-meta">
+            <dt>Namespace</dt>
+            <dd><code>https://iri.suomi.fi/model/eu-core/</code></dd>
+            
+            <dt>Prefix</dt>
+            <dd><code>eu-core</code></dd>
+            
+            <dt>Description</dt>
+            <dd>Local implementation of EU Core Vocabularies (v2.0.0). Simplified, reusable, and extensible data models for fundamental entities like persons and organizations.</dd>
+            
+            <dt>Based On</dt>
+            <dd>EU Core Vocabularies v2.0.0 (April 2022)</dd>
+            
+            <dt>Source</dt>
+            <dd><a href="https://tietomallit.suomi.fi/model/eu-core">Tietomallit.suomi.fi</a></dd>
+        </dl>
+
+        <h3 id="eucore-classes">4.1 Key Classes</h3>
+
+        <div class="term-def">
+            <h4>eu-core:Person</h4>
+            <span class="term-label">Person</span>
+            <p>Natural person with demographics and identification information.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Key Properties</dt>
+                <dd>givenName, familyName, birthName, dateOfBirth, placeOfBirth, citizenship, domicile, identifier</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>eu-core:LegalEntity</h4>
+            <span class="term-label">Legal Entity</span>
+            <p>Legal person or organization with registration and legal status.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Key Properties</dt>
+                <dd>legalName, legalidentifier, legalFormType, legalEntityActivity, legalEntityStatus, registeredAddress</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>eu-core:Address</h4>
+            <span class="term-label">Address</span>
+            <p>Postal address with structured components.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Key Properties</dt>
+                <dd>fullAddress, thoroughfare, locatorDesignator, postName, postCode, adminUnitLevel1, adminUnitLevel2</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>eu-core:Organization</h4>
+            <span class="term-label">Organization</span>
+            <p>Organizational structure that can have sub-organizations and memberships.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Subclasses</dt>
+                <dd>PublicOrganization, OrganizationalUnit</dd>
+                <dt>Key Properties</dt>
+                <dd>legalName, classification, purpose, hasSubOrganization, hasMember</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>eu-core:Evidence</h4>
+            <span class="term-label">Evidence</span>
+            <p>Supporting evidence or documentation for requirements or claims.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Key Properties</dt>
+                <dd>isProvidedBy, hasSupportingEvidence, confidentialityLevelType</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>eu-core:Identifier</h4>
+            <span class="term-label">Identifier</span>
+            <p>Formal identification according to a specific scheme.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Key Properties</dt>
+                <dd>notation, schemeName, schemeURI, issuedBy, dateOfIssue</dd>
+            </dl>
+        </div>
+
+        <h3 id="eucore-properties">4.2 Key Properties</h3>
+
+        <div class="term-def">
+            <h4>eu-core:legalName</h4>
+            <span class="term-label">legal name</span>
+            <p>Name under which a legal entity is registered.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:DatatypeProperty</dd>
+                <dt>Domain</dt>
+                <dd>eu-core:LegalEntity</dd>
+                <dt>Range</dt>
+                <dd>xsd:string</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>eu-core:registeredAddress</h4>
+            <span class="term-label">registered address</span>
+            <p>Official registered address of a legal entity.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:ObjectProperty</dd>
+                <dt>Domain</dt>
+                <dd>eu-core:LegalEntity</dd>
+                <dt>Range</dt>
+                <dd>eu-core:Address</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>eu-core:identifier</h4>
+            <span class="term-label">identifier</span>
+            <p>Formal identifier for a person or organization.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:ObjectProperty</dd>
+                <dt>Domain</dt>
+                <dd>eu-core:Person ⊔ eu-core:Agent</dd>
+                <dt>Range</dt>
+                <dd>eu-core:Identifier</dd>
+            </dl>
+        </div>
+    </section>
+
+    <section id="ncbv">
+        <h2>5. NCBV Vocabulary</h2>
+        
+        <dl class="term-meta">
+            <dt>Namespace</dt>
+            <dd><code>https://iri.suomi.fi/model/ncbv/</code></dd>
+            
+            <dt>Prefix</dt>
+            <dd><code>ncbv</code></dd>
+            
+            <dt>Description</dt>
+            <dd>Common Nordic data vocabulary for business information, covering legal entities, roles, mandates, representation rules, and beneficial ownership.</dd>
+            
+            <dt>Version</dt>
+            <dd>0.0.8</dd>
+            
+            <dt>Imports</dt>
+            <dd>isa2core (eu-core v1.0.0), busdoc</dd>
+            
+            <dt>Maintained By</dt>
+            <dd>Finnish Tax Administration (Verohallinto) and Nordic Data Quality and Semantics working group</dd>
+            
+            <dt>Source</dt>
+            <dd><a href="https://tietomallit.suomi.fi/model/ncbv">Tietomallit.suomi.fi</a></dd>
+        </dl>
+
+        <h3 id="ncbv-classes">5.1 Key Classes</h3>
+
+        <div class="term-def">
+            <h4>ncbv:LegalEntity</h4>
+            <span class="term-label">Legal Entity</span>
+            <p>Extended business entity with legal status, registration, and representation information.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Extends</dt>
+                <dd>eu-core:LegalEntity</dd>
+                <dt>Key Properties</dt>
+                <dd>legalIdentifier, legalName, hasLegalForm, hasLegalStatus, hasRole, hasRepresentationRule, registrationDate</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>ncbv:Role</h4>
+            <span class="term-label">Role</span>
+            <p>Role held by a person or legal entity in relation to another entity.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Key Properties</dt>
+                <dd>heldByPerson, heldByLegalEntity, title, hasDuration</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>ncbv:Mandate</h4>
+            <span class="term-label">Mandate</span>
+            <p>Legal mandate or power of attorney granting representation rights.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Key Properties</dt>
+                <dd>mandatee, hasMandator, power, delegable, hasDuration, transferOfMandate</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>ncbv:RepresentationRule</h4>
+            <span class="term-label">Representation Rule</span>
+            <p>Rule defining how a legal entity may be represented (alone, jointly, etc.).</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Subclasses</dt>
+                <dd>RoleBasedRepresentationRule, MembershipBasedRepresentationRule, CompositeRepresentationRule</dd>
+                <dt>Key Properties</dt>
+                <dd>definesValidRole, minimumNumberOfRoleHolders, alone, jointly, and, or</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>ncbv:BeneficialOwner</h4>
+            <span class="term-label">Beneficial Owner</span>
+            <p>Ultimate beneficial owner of a legal entity.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Key Properties</dt>
+                <dd>hasRole (BeneficialOwnerRole), interestType, interestControl, interestDirectOrIndirect</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>ncbv:ShareCapital</h4>
+            <span class="term-label">Share Capital</span>
+            <p>Capital and ownership structure information.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:Class</dd>
+                <dt>Key Properties</dt>
+                <dd>totalCapitalAmount, numberOfShares, capitalType</dd>
+            </dl>
+        </div>
+
+        <h3 id="ncbv-properties">5.2 Key Properties</h3>
+
+        <div class="term-def">
+            <h4>ncbv:legalIdentifier</h4>
+            <span class="term-label">legal identifier</span>
+            <p>Official legal identifier of a business entity (e.g., business ID, VAT number).</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:ObjectProperty</dd>
+                <dt>Domain</dt>
+                <dd>ncbv:LegalEntity</dd>
+                <dt>Range</dt>
+                <dd>ncbv:Identifier</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>ncbv:hasRepresentationRule</h4>
+            <span class="term-label">has representation rule</span>
+            <p>Specifies the rules for legal representation of an entity.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:ObjectProperty</dd>
+                <dt>Domain</dt>
+                <dd>ncbv:LegalEntity</dd>
+                <dt>Range</dt>
+                <dd>ncbv:RepresentationRule</dd>
+            </dl>
+        </div>
+
+        <div class="term-def">
+            <h4>ncbv:grantsMandate</h4>
+            <span class="term-label">grants mandate</span>
+            <p>Indicates that an entity grants a mandate to another party.</p>
+            <dl class="term-meta">
+                <dt>Type</dt>
+                <dd>owl:ObjectProperty</dd>
+                <dt>Range</dt>
+                <dd>ncbv:Mandate</dd>
+            </dl>
+        </div>
+    </section>
+
+    <section id="usage">
+        <h2>6. Usage in W3C Verifiable Credentials</h2>
+        
+        <p>These vocabularies are designed to be used together in W3C Verifiable Credentials. The typical pattern is:</p>
+        
+        <ol>
+            <li>Use <strong>EU-Core</strong> for basic entity modeling (Person, LegalEntity, Address)</li>
+            <li>Extend with <strong>NCBV</strong> for Nordic business entity details (roles, mandates, representation)</li>
+            <li>Add <strong>WE BUILD</strong> attestation types for compliance and regulatory requirements</li>
+        </ol>
+
+        <h3>Context Declaration</h3>
+        
+        <p>To use all three vocabularies in a Verifiable Credential, include their contexts:</p>
+        
+        <pre><code>{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://iri.suomi.fi/model/webuild/",
+    "https://iri.suomi.fi/model/eu-core/",
+    "https://iri.suomi.fi/model/ncbv/"
+  ],
+  ...
+}</code></pre>
+
+        <h3>Type Composition</h3>
+        
+        <p>Classes from different vocabularies can be combined when they extend the same base class:</p>
+        
+        <pre><code>{
+  "@type": ["eu-core:LegalEntity", "ncbv:LegalEntity"],
+  "eu-core:legalName": "Acme Corporation",
+  "ncbv:legalIdentifier": {
+    "@type": "ncbv:Identifier",
+    "ncbv:notation": "FI12345678",
+    "ncbv:schemeName": "Finnish Business ID"
+  },
+  "eu-core:registeredAddress": { ... },
+  "ncbv:hasRepresentationRule": { ... }
+}</code></pre>
+    </section>
+
+    <section id="examples">
+        <h2>7. Complete Examples</h2>
+
+        <h3>Example 1: Tax Debt Status Attestation</h3>
+        
+        <div class="example">
+            <div class="example-title">Finnish company with tax debt status verification</div>
+            <pre><code>{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://iri.suomi.fi/model/webuild/",
+    "https://iri.suomi.fi/model/eu-core/"
+  ],
+  "@id": "urn:uuid:a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "@type": ["VerifiableCredential", "webuild:TaxDebtStatusAttestation"],
+  "issuer": {
+    "@id": "did:web:vero.fi",
+    "name": "Finnish Tax Administration"
+  },
+  "validFrom": "2026-03-16T00:00:00Z",
+  "validUntil": "2027-03-16T00:00:00Z",
+  "credentialSubject": {
+    "@id": "did:example:123456789",
+    "@type": "eu-core:LegalEntity",
+    "eu-core:legalName": "Rakennusyhtiö Oy",
+    "eu-core:legalidentifier": {
+      "@type": "eu-core:Identifier",
+      "eu-core:notation": "1234567-8",
+      "eu-core:schemeName": "Finnish Business ID"
+    },
+    "webuild:hasTaxDebtStatus": "no-debt",
+    "webuild:hasTaxObligationAssessment": {
+      "@type": "webuild:TaxObligationAssessment",
+      "webuild:obligationStatus": "compliant",
+      "webuild:reportingPeriod": {
+        "startDate": "2025-01-01",
+        "endDate": "2025-12-31"
+      }
+    }
+  },
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "created": "2026-03-16T10:30:00Z",
+    "verificationMethod": "did:web:vero.fi#key-1",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z3FXQ..."
+  }
+}</code></pre>
+        </div>
+
+        <h3>Example 2: Nordic Legal Entity with Representation</h3>
+        
+        <div class="example">
+            <div class="example-title">Swedish company with NCBV representation rules</div>
+            <pre><code>{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://iri.suomi.fi/model/eu-core/",
+    "https://iri.suomi.fi/model/ncbv/"
+  ],
+  "@id": "urn:uuid:b2c3d4e5-f678-90ab-cdef-1234567890ab",
+  "@type": ["VerifiableCredential"],
+  "issuer": {
+    "@id": "did:web:bolagsverket.se",
+    "name": "Swedish Companies Registration Office"
+  },
+  "validFrom": "2026-03-16T00:00:00Z",
+  "credentialSubject": {
+    "@id": "did:example:987654321",
+    "@type": ["eu-core:LegalEntity", "ncbv:LegalEntity"],
+    "ncbv:legalName": "Byggföretag AB",
+    "ncbv:legalIdentifier": {
+      "@type": "ncbv:Identifier",
+      "ncbv:notation": "556123-4567",
+      "ncbv:schemeName": "Swedish Org. Number",
+      "ncbv:schemeAgency": "Bolagsverket"
+    },
+    "eu-core:registeredAddress": {
+      "@type": "eu-core:Address",
+      "eu-core:fullAddress": "Kungsgatan 1, 111 43 Stockholm, Sweden",
+      "eu-core:thoroughfare": "Kungsgatan",
+      "eu-core:locatorDesignator": "1",
+      "eu-core:postCode": "111 43",
+      "eu-core:postName": "Stockholm",
+      "eu-core:adminUnitLevel1": "SE"
+    },
+    "ncbv:hasLegalForm": {
+      "@type": "ncbv:Code",
+      "ncbv:codeName": "AB",
+      "ncbv:codeValue": "Aktiebolag"
+    },
+    "ncbv:hasRepresentationRule": {
+      "@type": "ncbv:RoleBasedRepresentationRule",
+      "ncbv:definesValidRole": "CEO",
+      "ncbv:alone": true
+    },
+    "ncbv:hasRole": [
+      {
+        "@type": "ncbv:Role",
+        "ncbv:title": "CEO",
+        "ncbv:heldByPerson": {
+          "@type": "eu-core:Person",
+          "eu-core:givenName": "Anna",
+          "eu-core:familyName": "Andersson",
+          "ncbv:dateOfBirth": "1975-06-15"
+        }
+      }
+    ]
+  },
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "created": "2026-03-16T10:30:00Z",
+    "verificationMethod": "did:web:bolagsverket.se#key-1",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z4GYR..."
+  }
+}</code></pre>
+        </div>
+
+        <h3>Example 3: Posted Worker Notification</h3>
+        
+        <div class="example">
+            <div class="example-title">Posted worker notification combining all three vocabularies</div>
+            <pre><code>{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://iri.suomi.fi/model/webuild/",
+    "https://iri.suomi.fi/model/eu-core/",
+    "https://iri.suomi.fi/model/ncbv/"
+  ],
+  "@id": "urn:uuid:c3d4e5f6-7890-abcd-ef12-34567890abcd",
+  "@type": ["VerifiableCredential", "webuild:PostedWorkerNotification"],
+  "issuer": {
+    "@id": "did:example:sending-employer",
+    "name": "Polish Construction Ltd"
+  },
+  "validFrom": "2026-03-01T00:00:00Z",
+  "validUntil": "2026-06-30T23:59:59Z",
+  "credentialSubject": {
+    "@id": "urn:uuid:notification-12345",
+    "@type": "webuild:PostedWorkerNotification",
+    "webuild:hasWorker": {
+      "@type": "eu-core:Person",
+      "eu-core:givenName": "Jan",
+      "eu-core:familyName": "Kowalski",
+      "eu-core:dateOfBirth": "1985-03-20",
+      "eu-core:citizenship": "PL"
+    },
+    "webuild:hasSendingEmployer": {
+      "@type": ["eu-core:LegalEntity", "ncbv:LegalEntity"],
+      "ncbv:legalName": "Budowa Sp. z o.o.",
+      "ncbv:legalIdentifier": {
+        "@type": "ncbv:Identifier",
+        "ncbv:notation": "PL1234567890"
+      },
+      "eu-core:registeredAddress": {
+        "@type": "eu-core:Address",
+        "eu-core:adminUnitLevel1": "PL"
+      }
+    },
+    "webuild:hasWorkAssignment": {
+      "@type": "webuild:WorkAssignment",
+      "webuild:hasWorkLocation": {
+        "@type": "eu-core:Location",
+        "eu-core:geographicName": "Helsinki",
+        "eu-core:adminUnitLevel1": "FI"
+      },
+      "webuild:hasAssignmentPeriod": {
+        "startDate": "2026-03-01",
+        "endDate": "2026-06-30"
+      },
+      "webuild:hasWorkActivity": {
+        "@type": "webuild:WorkActivity",
+        "webuild:workActivityDescription": "Construction work - residential building"
+      }
+    },
+    "webuild:hasSocialSecurityDetermination": {
+      "@type": "webuild:PDA1Certificate",
+      "webuild:issuingInstitution": "Polish ZUS",
+      "webuild:hasApplicableJurisdiction": "PL",
+      "webuild:applicablePeriod": {
+        "startDate": "2026-03-01",
+        "endDate": "2028-02-28"
+      }
+    }
+  },
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "created": "2026-02-28T12:00:00Z",
+    "verificationMethod": "did:example:sending-employer#key-1",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z5HZS..."
+  }
+}</code></pre>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Generated:</strong> March 2026</p>
+        <p><strong>Repository:</strong> <a href="https://github.com/jgmikael/vocabularies">github.com/jgmikael/vocabularies</a></p>
+        <p><strong>License:</strong> CC0 1.0 Universal (Public Domain)</p>
+        <p><strong>Vocabulary Sources:</strong></p>
+        <ul>
+            <li>WE BUILD, EU-Core: Finnish Digital and Population Data Services Agency (DVV) – yhteentoimivuus@dvv.fi</li>
+            <li>NCBV: Finnish Tax Administration (Verohallinto) and Nordic Data Quality and Semantics working group</li>
+        </ul>
+        <p><strong>See also:</strong> <a href="https://tietomallit.suomi.fi">Tietomallit.suomi.fi</a> (Finnish Interoperability Platform)</p>
+    </footer>
+</body>
+</html>
