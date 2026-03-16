@@ -1,0 +1,34 @@
+@prefix dcap:       <http://purl.org/ws-mmi-dc/terms/> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix eu-core:    <https://iri.suomi.fi/model/eu-core/> .
+@prefix geo:        <http://www.opengis.net/ont/geosparql#> .
+@prefix http:       <http://www.w3.org/2011/http#> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:         <http://www.w3.org/ns/shacl#> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix suomi-meta: <https://iri.suomi.fi/model/suomi-meta/> .
+@prefix webuild:    <https://iri.suomi.fi/model/webuild/> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+
+webuild:  rdf:type                    owl:Ontology;
+        rdfs:comment                  "Vocabulary for the electronic attestations of attributes (QEAA, PubEAA, EAA) that are designed by and for the Use Cases of the WE BUILD Large Scale Pilot."@en;
+        rdfs:label                    "WE BUILD Vocabulary"@en;
+        dcterms:contributor           <urn:uuid:0e7e4f57-be57-4f99-bb1f-bfdcf0b6948a>;
+        dcterms:created               "2026-01-12T17:12:46.471Z"^^xsd:dateTime;
+        dcterms:hasPart               webuild:hasCountry , webuild:hasTaxDebtStatus , webuild:Asset , webuild:TaxDebtStatusAttestation , webuild:ticketToken , webuild:constructionSectorIndicator , webuild:SocialContributionsDebtStatusAttestation , webuild:hasWorkLocation , webuild:insuredPerson , webuild:employmentType , webuild:hasAddress , webuild:countryName , webuild:obligationType , webuild:hasActivity , webuild:Seat , webuild:hasSocialContributionsDebtStatus , webuild:workOnVesselIndicator , webuild:OperationalAsset , webuild:countryURI , webuild:ticketLetter , webuild:hasWorkActivity , webuild:flagState , webuild:hasExclusionGroundsStatus , webuild:occupationTitle , webuild:hasSendingEmployer , webuild:workActivityDescription , webuild:Participation , webuild:coverageScope , webuild:workHost , webuild:hasTaxFilingStatus , webuild:hasWorkAssignment , webuild:hasWorker , webuild:coverageValidityBasis , webuild:ProcurementExclusionGroundsStatusAttestation , webuild:obligationStatus , webuild:CompanyRegistrationGoodStandingAttestation , webuild:isLegalEntity , webuild:hasAssignmentPeriod , webuild:usesOperationalAsset , webuild:hasTaxDebtAmount , webuild:hasParticipation , webuild:issuingInstitution , webuild:hasSeat , webuild:Coverage , webuild:TaxObligationAssessment , webuild:coveredPeriod , webuild:hasCoverage , webuild:hasInsuranceCoverageStatus , webuild:fullPeriodCoverageIndicator , webuild:hasEmployer , webuild:Occupation , webuild:reportingPeriod , webuild:hasComplianceStatus , webuild:seatNumber , webuild:amountValue , webuild:isSubjectToTransitionalRules , webuild:hasTemporaryStayAddress , webuild:staffAverage , webuild:hasRepresentative , webuild:flagStateCode , webuild:currencyCode , webuild:countryCode , webuild:hasDetermination , webuild:PDA1Certificate , webuild:hasTaxObligationAssessment , webuild:hasParticipant , webuild:hasWorkRelation , webuild:Employment , webuild:hasOccupation , webuild:hasPassenger , webuild:hasEmploymentRelation , webuild:confirmationStatus , webuild:hasAdministrativeRepresentative , webuild:totalPayroll , webuild:seatingType , webuild:hasDebtArrangementStatus , webuild:hasLegalApplicability , webuild:applicablePeriod , webuild:TaxFilingComplianceAttestation , webuild:PublicDebtArrangementStatusAttestation , webuild:hasApplicableJurisdiction , webuild:hasSocialDeclarationsStatus , webuild:Country , webuild:Activity , webuild:WorkActivity , webuild:ComplianceAttestation , webuild:hasPlaceOfActivity , webuild:PostedWorkerNotification , webuild:activityCountry , webuild:StatutoryInsuranceCoverageAttestation , webuild:hasFixedPlaceOfActivity , webuild:hasHostEntity , webuild:MonetaryAmount , webuild:vesselName , webuild:assetName , webuild:LegalApplicability , webuild:hasGoodStandingStatus , webuild:Determination , webuild:TransportTicket , webuild:SocialSecurityDetermination , webuild:SocialDeclarationsComplianceAttestation , webuild:hasCompetentInstitution , webuild:hasSocialSecurityDetermination , webuild:hasNotificationAuthority , webuild:hasSocialRepresentative , webuild:noFixedPlaceOfWork , webuild:WorkAssignment , webuild:isProvisionalDetermination;
+        dcterms:identifier            "7262c954-bbd4-4217-92e5-cd7efc1d22b0";
+        dcterms:isPartOf              <http://urn.fi/URN:NBN:fi:au:ptvl:v1115> , <http://urn.fi/URN:NBN:fi:au:ptvl:v1095> , <http://urn.fi/URN:NBN:fi:au:ptvl:v1096> , <http://urn.fi/URN:NBN:fi:au:ptvl:v1142> , <http://urn.fi/URN:NBN:fi:au:ptvl:v1105> , <http://urn.fi/URN:NBN:fi:au:ptvl:v1126> , <http://urn.fi/URN:NBN:fi:au:ptvl:v1132>;
+        dcterms:language              "en";
+        dcterms:modified              "2026-02-06T13:04:16.97Z"^^xsd:dateTime;
+        dcterms:requires              <https://iri.suomi.fi/terminology/webuild/> , skos:;
+        dcap:preferredXMLNamespace    "https://iri.suomi.fi/model/webuild/";
+        dcap:preferredXMLNamespacePrefix
+                "webuild";
+        owl:imports                   eu-core: , <https://gs1.org/voc/>;
+        suomi-meta:contact            "yhteentoimivuus@dvv.fi";
+        suomi-meta:contentModified    "2026-01-12T17:12:46.471Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .

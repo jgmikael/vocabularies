@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Vocabularies: WE BUILD + EU-Core + NCBV</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #0066cc;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #004499;
+            margin-top: 40px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+        }
+        .vocab-card {
+            background: #f8f9fa;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .vocab-card h3 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+        .vocab-meta {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .download-links {
+            margin-top: 15px;
+        }
+        .download-links a {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 8px 16px;
+            margin-right: 10px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .download-links a:hover {
+            background: #0052a3;
+        }
+        .info-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #0066cc;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .relationship-diagram {
+            background: white;
+            border: 2px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Combined Finnish Business Vocabularies</h1>
+    
+    <p><strong>Repository:</strong> <a href="https://github.com/jgmikael/vocabularies">github.com/jgmikael/vocabularies</a></p>
+    
+    <div class="info-box">
+        <strong>About this site:</strong> This documentation combines three core vocabularies from <a href="https://tietomallit.suomi.fi">Tietomallit.suomi.fi</a> (Finnish Interoperability Platform) into a unified reference for business process digitalization using W3C Verifiable Credentials and the EU Business Wallet framework.
+    </div>
+
+    <h2>Vocabulary Overview</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Vocabulary</th>
+                <th>Prefix</th>
+                <th>Namespace</th>
+                <th>Purpose</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>WE BUILD</strong></td>
+                <td><code>webuild</code></td>
+                <td><code>https://iri.suomi.fi/model/webuild/</code></td>
+                <td>Electronic attestations of attributes (QEAA, PubEAA, EAA) for WE BUILD Large Scale Pilot</td>
+                <td>Draft</td>
+            </tr>
+            <tr>
+                <td><strong>EU-Core</strong></td>
+                <td><code>eu-core</code></td>
+                <td><code>https://iri.suomi.fi/model/eu-core/</code></td>
+                <td>EU Core Vocabularies (Person, Organization, Location, Address, Evidence, etc.)</td>
+                <td>Draft</td>
+            </tr>
+            <tr>
+                <td><strong>NCBV</strong></td>
+                <td><code>ncbv</code></td>
+                <td><code>https://iri.suomi.fi/model/ncbv/</code></td>
+                <td>Nordic Core Business Vocabulary for business information</td>
+                <td>Draft (v0.0.8)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Vocabulary Relationships</h2>
+
+    <div class="relationship-diagram">
+        <pre style="font-family: monospace; text-align: left; display: inline-block;">
+┌─────────────────────┐
+│    WE BUILD         │
+│  (webuild:)         │
+│                     │
+│  Attestations,      │
+│  Posted Workers,    │
+│  Tax/Social Debt    │
+└──────────┬──────────┘
+           │ owl:imports
+           ▼
+┌─────────────────────┐         ┌─────────────────────┐
+│    EU-Core          │         │     NCBV            │
+│  (eu-core:)         │         │   (ncbv:)           │
+│                     │◄────────│                     │
+│  Person, Org,       │ imports │  Legal Entity,      │
+│  Location, Address, │         │  Mandate, Role,     │
+│  Evidence, Document │         │  Representation     │
+└─────────────────────┘         └─────────────────────┘
+        </pre>
+        <p><em>WE BUILD extends EU-Core; NCBV imports EU-Core (ISA2core v1.0.0)</em></p>
+    </div>
+
+    <h2>Individual Vocabularies</h2>
+
+    <div class="vocab-card">
+        <h3>WE BUILD Vocabulary</h3>
+        <p><strong>Description:</strong> Vocabulary for the electronic attestations of attributes (QEAA, PubEAA, EAA) that are designed by and for the Use Cases of the WE BUILD Large Scale Pilot.</p>
+        
+        <div class="vocab-meta">
+            <p><strong>Namespace:</strong> <code>https://iri.suomi.fi/model/webuild/</code></p>
+            <p><strong>Prefix:</strong> <code>webuild</code></p>
+            <p><strong>Language:</strong> English</p>
+            <p><strong>Imports:</strong> EU-Core, GS1 Vocabulary</p>
+            <p><strong>Last Modified:</strong> 2026-02-06</p>
+            <p><strong>Maintainer:</strong> yhteentoimivuus@dvv.fi (Finnish Digital and Population Data Services Agency)</p>
+        </div>
+        
+        <div class="download-links">
+            <a href="https://iri.suomi.fi/model/webuild/" target="_blank">JSON-LD</a>
+            <a href="https://tietomallit.suomi.fi/model/webuild" target="_blank">View on Tietomallit</a>
+        </div>
+        
+        <p><strong>Key Classes:</strong></p>
+        <ul>
+            <li>ComplianceAttestation - Base class for compliance attestations</li>
+            <li>TaxDebtStatusAttestation - Tax debt status verification</li>
+            <li>SocialContributionsDebtStatusAttestation - Social security debt status</li>
+            <li>StatutoryInsuranceCoverageAttestation - Insurance coverage verification</li>
+            <li>PostedWorkerNotification - Posted worker declarations</li>
+            <li>PDA1Certificate - Portable Document A1 (social security)</li>
+            <li>Employment, WorkAssignment, Occupation - Work-related entities</li>
+        </ul>
+    </div>
+
+    <div class="vocab-card">
+        <h3>EU-Core Vocabularies</h3>
+        <p><strong>Description:</strong> A local implementation of the EU Core Vocabularies for use by the WP4 Semantics Group in the WE BUILD Large Scale Pilot. EU Core Vocabularies are simplified, reusable, and extensible data models that capture the fundamental characteristics of entities like persons and organizations.</p>
+        
+        <div class="vocab-meta">
+            <p><strong>Namespace:</strong> <code>https://iri.suomi.fi/model/eu-core/</code></p>
+            <p><strong>Prefix:</strong> <code>eu-core</code></p>
+            <p><strong>Languages:</strong> English, Finnish</p>
+            <p><strong>Based on:</strong> EU Core Vocabularies v2.0.0 (published 2022-04-07)</p>
+            <p><strong>Last Modified:</strong> 2026-01-12</p>
+        </div>
+        
+        <div class="download-links">
+            <a href="https://iri.suomi.fi/model/eu-core/" target="_blank">JSON-LD</a>
+            <a href="https://tietomallit.suomi.fi/model/eu-core" target="_blank">View on Tietomallit</a>
+        </div>
+        
+        <p><strong>Key Classes:</strong></p>
+        <ul>
+            <li>Person - Natural person with demographics and identification</li>
+            <li>LegalEntity - Legal person/organization with registration details</li>
+            <li>Organization, PublicOrganization - Organizational structures</li>
+            <li>Address, Location - Geographic and postal information</li>
+            <li>Evidence, Document - Supporting documentation</li>
+            <li>Identifier - Formal identification schemes</li>
+            <li>ContactPoint - Communication details</li>
+            <li>Requirement, InformationRequirement, Criterion - Regulatory requirements</li>
+        </ul>
+    </div>
+
+    <div class="vocab-card">
+        <h3>Nordic Core Business Vocabulary (NCBV)</h3>
+        <p><strong>Description:</strong> The common Nordic data vocabulary for business information, initiated by the Nordic Smart Government & Business 4.0 program in 2022-24, further developed and maintained by the Nordic Data Quality and Semantics working group (2025-).</p>
+        
+        <div class="vocab-meta">
+            <p><strong>Namespace:</strong> <code>https://iri.suomi.fi/model/ncbv/</code></p>
+            <p><strong>Prefix:</strong> <code>ncbv</code></p>
+            <p><strong>Languages:</strong> English, Finnish, Swedish, Norwegian, Danish, Icelandic</p>
+            <p><strong>Version:</strong> 0.0.8</p>
+            <p><strong>Imports:</strong> ISA2core (EU-Core v1.0.0), busdoc</p>
+            <p><strong>Last Modified:</strong> 2025-10-23</p>
+            <p><strong>Maintainer:</strong> Finnish Tax Administration (Verohallinto)</p>
+        </div>
+        
+        <div class="download-links">
+            <a href="https://iri.suomi.fi/model/ncbv/" target="_blank">JSON-LD</a>
+            <a href="https://tietomallit.suomi.fi/model/ncbv" target="_blank">View on Tietomallit</a>
+        </div>
+        
+        <p><strong>Key Classes:</strong></p>
+        <ul>
+            <li>LegalEntity - Business entity with legal status and registration</li>
+            <li>Role, Membership - Business roles and memberships</li>
+            <li>Mandate, MandateTransfer - Representation and delegation</li>
+            <li>RepresentationRule - Rules for legal representation (alone, jointly, composite)</li>
+            <li>BeneficialOwner, BeneficialOwnerRole - Ultimate beneficial ownership</li>
+            <li>ShareCapital - Capital and ownership structure</li>
+            <li>EconomicOperator - Business operator status</li>
+            <li>LegalStatus - Registration and operational status</li>
+        </ul>
+    </div>
+
+    <h2>Usage in W3C Verifiable Credentials</h2>
+
+    <p>These vocabularies are designed to support the creation of W3C Verifiable Credentials for business processes. Example usage in a JSON-LD context:</p>
+
+    <pre style="background: #f8f9fa; padding: 15px; border-radius: 4px; overflow-x: auto;"><code>{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://iri.suomi.fi/model/webuild/",
+    "https://iri.suomi.fi/model/eu-core/",
+    "https://iri.suomi.fi/model/ncbv/"
+  ],
+  "@type": ["VerifiableCredential", "webuild:TaxDebtStatusAttestation"],
+  "credentialSubject": {
+    "@type": ["eu-core:LegalEntity", "ncbv:LegalEntity"],
+    "eu-core:legalName": "Acme Corporation",
+    "ncbv:legalIdentifier": {
+      "@type": "ncbv:Identifier",
+      "ncbv:notation": "FI12345678"
+    },
+    "webuild:hasTaxDebtStatus": "no-debt"
+  }
+}</code></pre>
+
+    <h2>Related Resources</h2>
+
+    <ul>
+        <li><a href="https://tietomallit.suomi.fi">Tietomallit.suomi.fi</a> - Finnish Interoperability Platform</li>
+        <li><a href="https://github.com/webuild-consortium/wp4-semantics-group">WE BUILD Consortium WP4 Semantics Group</a></li>
+        <li><a href="https://joinup.ec.europa.eu/collection/semantic-interoperability-community-semic/solution/core-vocabularies">EU Core Vocabularies (SEMIC)</a></li>
+        <li><a href="https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet-implementation">EU Digital Identity Wallet</a></li>
+    </ul>
+
+    <h2>Documentation & Source</h2>
+
+    <p>This combined vocabulary documentation is maintained at <a href="https://github.com/jgmikael/vocabularies">github.com/jgmikael/vocabularies</a>.</p>
+
+    <p>For detailed class and property definitions, please visit each vocabulary's page on Tietomallit.suomi.fi:</p>
+    <ul>
+        <li><a href="https://tietomallit.suomi.fi/model/webuild">WE BUILD on Tietomallit</a></li>
+        <li><a href="https://tietomallit.suomi.fi/model/eu-core">EU-Core on Tietomallit</a></li>
+        <li><a href="https://tietomallit.suomi.fi/model/ncbv">NCBV on Tietomallit</a></li>
+    </ul>
+
+    <footer style="margin-top: 60px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 0.9em;">
+        <p>Generated: March 2026 | License: CC0 1.0 Universal (Public Domain)</p>
+        <p>Vocabularies sourced from Tietomallit.suomi.fi (Finnish Digital and Population Data Services Agency)</p>
+    </footer>
+</body>
+</html>

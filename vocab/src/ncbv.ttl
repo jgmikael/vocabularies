@@ -1,0 +1,38 @@
+@prefix busdoc:     <https://iri.suomi.fi/model/busdoc/1.0.2/> .
+@prefix dcap:       <http://purl.org/ws-mmi-dc/terms/> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix geo:        <http://www.opengis.net/ont/geosparql#> .
+@prefix http:       <http://www.w3.org/2011/http#> .
+@prefix isa2core:   <https://iri.suomi.fi/model/isa2core/1.0.0/> .
+@prefix ncbv:       <https://iri.suomi.fi/model/ncbv/> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:         <http://www.w3.org/ns/shacl#> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix suomi-meta: <https://iri.suomi.fi/model/suomi-meta/> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+
+ncbv:   rdf:type                      owl:Ontology;
+        rdfs:comment                  "The common Nordic data vocabulary for business information, initiated by the Nordic Smart Government & Business 4.0 program in 2022-24, further developed and maintained by the Nordic Data Quality and Semantics working group (2025-)."@en;
+        rdfs:label                    "Nordisk"@is-IS , "Nordic Core Business Vocabulary"@en , "Pohjoismainen yritystiedon ydintietomalli"@fi , "Nordisk företagsdatamodell"@sv , "Nordisk datamodel"@nb-NO , "Nordisk datamodel"@da-DK;
+        dcterms:contributor           <urn:uuid:0e7e4f57-be57-4f99-bb1f-bfdcf0b6948a>;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:hasPart               ncbv:RoleBasedRepresentationRule , ncbv:hasTelephone , ncbv:unit , ncbv:jointly , ncbv:hasGeographicalScope , ncbv:fiveOf , ncbv:reference , ncbv:hasIdentifier , ncbv:startDate , ncbv:fullName , ncbv:endDate , ncbv:LegalStatus , ncbv:Address , ncbv:roleHolderQuantifier , ncbv:notation , ncbv:alternativeName , ncbv:and , ncbv:interestDirectOrIndirect , ncbv:originalMandate , ncbv:postOfficeBox , ncbv:hasScope , ncbv:delegable , ncbv:legalName , ncbv:member , ncbv:memberQuantifier , ncbv:Location , ncbv:totalCapitalAmount , ncbv:locatorName , ncbv:interestType , ncbv:grantsRepresentationRight , ncbv:Identifier , ncbv:twoOf , ncbv:Rule , ncbv:ContactPoint , ncbv:MembershipBasedRepresentationRule , ncbv:schemeName , ncbv:dateOfBirth , ncbv:MonetaryAmount , ncbv:power , ncbv:currency , ncbv:codeName , ncbv:allOf , ncbv:thoroughfare , ncbv:email , ncbv:definesValidRole , ncbv:hasRepresentationRule , ncbv:status , ncbv:Restriction , ncbv:hasCode , ncbv:registeredAddress , ncbv:hasLegalStatus , ncbv:minimumNumberOfRoleHolders , ncbv:hasSource , ncbv:numberOfShares , ncbv:description , ncbv:or , ncbv:amount , ncbv:RestrictionType , ncbv:Role , ncbv:PeriodOfTime , ncbv:codeValue , ncbv:majorityOf , ncbv:prefLabel , ncbv:transferOfMandate , ncbv:Object , ncbv:hasRole , ncbv:date , ncbv:hasShareCapital , ncbv:fullAddress , ncbv:LegalEntity , ncbv:locatorDesignator , ncbv:minimumNumberOfMembers , ncbv:geographicName , ncbv:hasLegalForm , ncbv:adminUnitLevel1 , ncbv:Mandate , ncbv:registrationDate , ncbv:Document , ncbv:grantsMandate , ncbv:CompositeRepresentationRule , ncbv:legalIdentifier , ncbv:type , ncbv:consistsOfRepresentationRule , ncbv:datatype , ncbv:title , ncbv:name , ncbv:inClassification , ncbv:Code , ncbv:postCode , ncbv:heldByLegalEntity , ncbv:hasRestriction , ncbv:contactPage , ncbv:actsAsEconomicOperator , ncbv:threeOf , ncbv:geographicIdentifier , ncbv:Source , ncbv:LegalResource , ncbv:hasMandator , ncbv:isPerson , ncbv:sequence , ncbv:schemaAgency , ncbv:Person , ncbv:RepresentationRule , ncbv:Scope , ncbv:postName , ncbv:fourOf , ncbv:capitalType , ncbv:codeIdentifier , ncbv:mandatee , ncbv:Membership , ncbv:heldByPerson , ncbv:Agent , ncbv:subject , ncbv:postalAddress , ncbv:objectType , ncbv:BeneficialOwnerRole , ncbv:appliesToObject , ncbv:identifierValue , ncbv:ShareCapital , ncbv:hasDuration , ncbv:careOf , ncbv:hasContactPoint , ncbv:alone , ncbv:modified , ncbv:interestControl , ncbv:oneOf , ncbv:BeneficialOwner , ncbv:adminUnitLevel2 , ncbv:dateOfIssue , ncbv:schemeURI , ncbv:MandateTransfer , ncbv:implements , ncbv:value , ncbv:hasActivity , ncbv:definesValidMembership , ncbv:EconomicOperator , ncbv:beneficialOwners , ncbv:hasMember;
+        dcterms:identifier            "06e409e7-ecac-4cfa-91d0-80badd4c8dde";
+        dcterms:isPartOf              <http://urn.fi/URN:NBN:fi:au:ptvl:v1132> , <http://urn.fi/URN:NBN:fi:au:ptvl:v1126> , <http://urn.fi/URN:NBN:fi:au:ptvl:v1105> , <http://urn.fi/URN:NBN:fi:au:ptvl:v1095>;
+        dcterms:language              "fi" , "nb-NO" , "is-IS" , "en" , "da-DK" , "sv";
+        dcterms:modified              "2025-10-23T07:46:53.967Z"^^xsd:dateTime;
+        dcterms:requires              "https://iri.suomi.fi/terminology/nbvoc";
+        dcterms:requires              <https://iri.suomi.fi/terminology/nbvoc/> , owl: , dcterms: , <http://data.europa.eu/m8g/> , skos:;
+        dcap:preferredXMLNamespace    "https://iri.suomi.fi/model/ncbv/";
+        dcap:preferredXMLNamespacePrefix
+                "ncbv";
+        owl:imports                   busdoc: , rdfs: , sh: , isa2core: , <http://xmlns.com/foaf/0.1/>;
+        owl:priorVersion              <https://iri.suomi.fi/model/ncbv/0.0.8/>;
+        suomi-meta:contact            "yhteentoimivuus@dvv.fi";
+        suomi-meta:contentModified    "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        suomi-meta:copiedFrom         "https://iri.suomi.fi/model/ncbv2/";
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .

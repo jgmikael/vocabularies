@@ -1,0 +1,5 @@
+# Jekyll configuration for GitHub Pages
+theme: jekyll-theme-minimal
+title: "Combined Finnish Business Vocabularies"
+description: "WE BUILD + EU-Core + NCBV from Tietomallit.suomi.fi"
+show_downloads: false
